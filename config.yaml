@@ -1,0 +1,39 @@
+database:
+  host: localhost
+  port: 5433
+  dbname: postgres
+  user: postgres
+  password: password
+  
+# Tables configuration
+# List the tables you want to expose through the MCP server
+tables:
+  - name: users
+    # Optional: Specify which columns are allowed for operations
+    # If not specified, all columns will be allowed
+    allowed_columns:
+      - id
+      - name
+      - email
+      - created_at
+    # Optional: Specify which operations are allowed on this table
+    # If not specified, all operations will be allowed
+    allowed_operations:
+      - create
+      - read
+      - update
+      - delete
+  
+  # Example of another table configuration
+  - name: products
+    allowed_columns:
+      - id
+      - name
+      - price
+      - description
+      - category
+    allowed_operations:
+      - create
+      - read
+      - update
+      - delete
